@@ -6,9 +6,10 @@ html_page_top( plugin_lang_get( 'configuration') );
 
 print_manage_menu( );
 
-$t_kanbanery_api_key = plugin_config_get( 'kanbanery_api_key' );
+$t_kanbanery_api_key    = plugin_config_get( 'kanbanery_api_key' );
+$t_kanbanery_workspace  = plugin_config_get( 'kanbanery_workspace' );
 $t_kanbanery_project_id = plugin_config_get( 'kanbanery_project_id' );
-$t_kanbanery_task_type = plugin_config_get( 'kanbanery_task_type' );
+$t_kanbanery_task_type  = plugin_config_get( 'kanbanery_task_type' );
 ?>
 
 <br />
@@ -21,6 +22,10 @@ $t_kanbanery_task_type = plugin_config_get( 'kanbanery_task_type' );
     <tr <?php echo helper_alternate_class() ?>>
       <td class="category"><?php echo plugin_lang_get( 'kanbanery_api_key' ) ?></td>
       <td><input name="kanbanery_api_key" value="<?php echo string_attribute( $t_kanbanery_api_key ) ?>" /></td>
+    </tr>
+    <tr <?php echo helper_alternate_class() ?>>
+      <td class="category"><?php echo plugin_lang_get( 'kanbanery_workspace' ) ?></td>
+      <td><input name="kanbanery_workspace" value="<?php echo string_attribute( $t_kanbanery_workspace ) ?>" /></td>
     </tr>
     <tr <?php echo helper_alternate_class() ?>>
       <td class="category"><?php echo plugin_lang_get( 'kanbanery_project_id' ) ?></td>
