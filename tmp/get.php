@@ -5,6 +5,9 @@ require_once('config.php');
 // Getting users for project.
 //$url = "https://" . WORKSPACE . ".kanbanery.com/api/v1/projects/" . PROJECT_ID . "/users.json";
 
+// Listing workspaces with projects.
+$url = "https://" . WORKSPACE . ".kanbanery.com/api/v1/user/workspaces.json";
+
 // Getting Task Types for project.
 //$url = "https://" . WORKSPACE . ".kanbanery.com/api/v1/projects/" . PROJECT_ID . "/task_types.json";
 
@@ -18,6 +21,7 @@ require_once('config.php');
 
 $options = array("headers" => array('X-Kanbanery-ApiToken' => KEY));
 
+echo '<pre>';
 var_dump($url);
 echo "<br/>";
 var_dump($data);
@@ -25,8 +29,9 @@ var_dump($data);
 $request = new httpRequest($url, HTTP_METH_GET, $options);
 //$request->setRawPostData ($data);
 $result = $request->send();
-header("HTTP/1.0 " . $request->getResponseCode());
+
+var_dump($request->getResponseCode());
 
 echo "<br/>";
 
-var_dump($request->getResponseBody());
+print_r(json_decode($request->getResponseBody()));

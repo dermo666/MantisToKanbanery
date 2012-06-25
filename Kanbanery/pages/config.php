@@ -3,7 +3,6 @@ auth_reauthenticate( );
 access_ensure_global_level( config_get( 'manage_plugin_threshold' ) );
 
 html_page_top( plugin_lang_get( 'configuration') );
-
 print_manage_menu( );
 
 $t_kanbanery_api_key    = plugin_config_get( 'kanbanery_api_key' );

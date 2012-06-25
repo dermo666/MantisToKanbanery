@@ -4,7 +4,9 @@ $s_plugin_Kanbanery_configuration = "Configuration";
 
 $s_plugin_Kanbanery_kanbanery_api_key = "Kanbanery API Key";
 $s_plugin_Kanbanery_kanbanery_workspace = "Workspace";
-$s_plugin_Kanbanery_kanbanery_project_id = "Project ID";
+$s_plugin_Kanbanery_kanbanery_project_id = "Board ID";
 $s_plugin_Kanbanery_kanbanery_task_type = "Task Type";
 
 $s_plugin_Kanbanery_move_to_kanbanery = "Move to Kanbanery";
+$s_plugin_Kanbanery_select_board = "Select Kanban Board";
+$s_plugin_Kanbanery_board = "Board";
