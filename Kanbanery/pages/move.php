@@ -1,14 +1,14 @@
 <?php
 
-auth_reauthenticate( );
+// Get Mantis Bug Details.
+$bugId = gpc_get_int( 'bug_id' );
+$projectId = gpc_get_int( 'project_id', 0 );
+
+access_ensure_bug_level( config_get( 'update_bug_threshold' ), $bugId );
 form_security_validate( 'move_to_kanbanery' );
 
 html_page_top( plugin_lang_get( 'configuration') );
 print_manage_menu( );
-
-// Get Mantis Bug Details.
-$bugId = gpc_get_int( 'bug_id' );
-$projectId = gpc_get_int( 'project_id', 0 );
 
 $bug = bug_get( $bugId, true );
 
@@ -29,7 +29,7 @@ if ($projectId == 0) {
 
 // Add task to a Kanbanery project.
 $url     = "https://{$workspace}.kanbanery.com/api/v1/projects/{$projectId}/tasks.json";
-$data    = "task[task_type_name]={$taskType}&task[title]={$bug->summary}&task[description]={$bug->description}";
+$data    = "task[task_type_name]={$taskType}&task[title]={$bug->id} - {$bug->summary}&task[description]={$bug->description}";
 $options = array("headers" => array('X-Kanbanery-ApiToken' => $kanbaneryApiKey));
 
 $request = new httpRequest($url, HTTP_METH_POST, $options);
